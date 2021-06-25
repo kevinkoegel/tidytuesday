@@ -3,8 +3,6 @@ library(tvthemes)
 library(ggtext)
 library(showtext)
 
-font_add_google(name = 'Titillium Web', family = 'Titillium')
-
 showtext_auto()
 
 parks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-06-22/parks.csv') # Load dataset
