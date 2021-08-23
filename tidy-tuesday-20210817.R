@@ -12,15 +12,21 @@ library(ggtext)
 computer <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-08-17/computer.csv')
 
 #wrangle and plot
+font <- c("Khan", "StarNext", "FederationDS9Title", "Federation", "Klingon", "ModernVulcan", "TNGcast", "FederationStarfleet")
+path <- system.file(paste0("fonts/", font, ".ttf"), package = "trekfont")
+for(i in seq_along(font)) font_add(font[i], path[i])
+font_families()
+showtext_auto()
+
 char_images <- data.frame(char = c('Picard','Riker','Geordi','Worf','Troi','Data','Beverly'),
                           image = c("https://miro.medium.com/max/768/0*1EodT8AmjTMP6FG6.",
-                                 "https://cdn.costumewall.com/wp-content/uploads/2018/08/william-riker.jpg",
-                                 "https://treknews.net/wp-content/uploads/2016/05/geordi.jpg",
-                                 "https://d.newsweek.com/en/full/1574814/star-trek-picard-season-3-worf.jpg?w=1600&h=1600&l=51&t=34&q=88&f=9776e93300c68c7078ed98f45b2c2ae4",
-                                 "http://images6.fanpop.com/image/photos/35400000/Star-Trek-The-Next-Generation-marina-sirtis-35468566-694-530.jpg",
-                                 "https://upload.wikimedia.org/wikipedia/en/0/09/DataTNG.jpg",
-                                 "https://i.pinimg.com/originals/b9/1d/a8/b91da8478d6130000ca06be2ab5b8611.jpg"),
-                                 size=10, replace = TRUE)
+                                    "https://cdn.costumewall.com/wp-content/uploads/2018/08/william-riker.jpg",
+                                    "https://treknews.net/wp-content/uploads/2016/05/geordi.jpg",
+                                    "https://d.newsweek.com/en/full/1574814/star-trek-picard-season-3-worf.jpg?w=1600&h=1600&l=51&t=34&q=88&f=9776e93300c68c7078ed98f45b2c2ae4",
+                                    "http://images6.fanpop.com/image/photos/35400000/Star-Trek-The-Next-Generation-marina-sirtis-35468566-694-530.jpg",
+                                    "https://upload.wikimedia.org/wikipedia/en/0/09/DataTNG.jpg",
+                                    "https://i.pinimg.com/originals/b9/1d/a8/b91da8478d6130000ca06be2ab5b8611.jpg"),
+                          size=10, replace = TRUE)
 
 computer %>%
   select(name, char, nv_resp) %>%
