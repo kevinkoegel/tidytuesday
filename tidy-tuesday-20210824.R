@@ -56,12 +56,12 @@ lemur_sankey <- sankeyNetwork(Links = lemurs_clean,
                               Target = "IDsire_name",
                               Value = "pair_total", 
                               NodeID = "name",
-                              fontSize = 16,
+                              fontSize = 20,
                               width = 800,
-                              height = 600)
+                              height = 800)
 
-lemur_sankey <- htmlwidgets::prependContent(lemur_sankey, htmltools::tags$h3("Mircocebus murinus female (left) and male (right) parent pairings"))
-lemur_sankey <- htmlwidgets::prependContent(lemur_sankey, htmltools::tags$h3("Gray mouse lemurs currently residing at Duke Lemur Center"))
+lemur_sankey <- htmlwidgets::prependContent(lemur_sankey, htmltools::tags$h2("Mircocebus murinus female (left) and male (right) parent pairings of"))
+lemur_sankey <- htmlwidgets::prependContent(lemur_sankey, htmltools::tags$h2("Gray mouse lemurs currently residing at Duke Lemur Center"))
 lemur_sankey <- htmlwidgets::appendContent(lemur_sankey, htmltools::tags$p("SOURCE: Duke Lemur Center. Available at: https://lemur.duke.edu/"))
 
 lemur_sankey
