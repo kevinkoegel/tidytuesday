@@ -35,7 +35,8 @@ lemur_table <- lemurs_clean %>%
          'Number of Spawn' = pair_total) %>%
   flextable() %>%
   autofit() %>%
-  theme_vanilla()
+  theme_vanilla() %>%
+  bg(bg = 'white', part = 'all')
 
 lemur_table
 
@@ -55,7 +56,7 @@ lemur_sankey <- sankeyNetwork(Links = lemurs_clean,
                               Target = "IDsire_name",
                               Value = "pair_total", 
                               NodeID = "name",
-                              fontSize = 13,
+                              fontSize = 16,
                               width = 800,
                               height = 600)
 
