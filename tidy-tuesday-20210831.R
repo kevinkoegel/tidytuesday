@@ -5,7 +5,7 @@ library(sf)
 library(mapview)
 library(ggrepel)
 
-register_google(key = 'AIzaSyA1zMAHt5htLc9CIR3FNhA2sTIECFdCNp0')
+register_google(key = ' ')
 
 #Import data
 bird_baths <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-08-31/bird_baths.csv')
