@@ -87,24 +87,28 @@ summary %>%
              y = reorder(team, home_win_percentage))) +
   geom_point(aes(size = win, color = team, alpha = win), position = 'jitter') +
   geom_text_repel(data = venues, aes(label = venue), 
-                  size = 2.5, min.segment.length = 0, nudge_x = -.2) +
+                  size = 3, min.segment.length = 0, nudge_x = -.2) +
   theme(axis.ticks = element_blank(),
         axis.text.x = element_text(size = 9),
+        axis.text.y = element_text(size = 9),
         axis.title.x = element_text(size = 9),
         axis.title.y = element_blank(),
         panel.grid.major.x = element_line(color = 'gray93'),
         panel.background = element_blank(),
         plot.title = element_text(face = 'bold', family = 'Arial', size = 12),
         plot.title.position = 'plot',
-        plot.subtitle = element_markdown(size = 10),
+        plot.subtitle = element_markdown(size = 11),
         legend.title = element_text(size = 9),
-        plot.caption = element_text(size = 8, hjust = 1.15)) +
+        legend.text = element_text(size = 9),
+        plot.caption = element_text(size = 8, hjust = 1.1)) +
   coord_cartesian(clip = 'off') +
+  scale_size_continuous(range = c(2,8)) +
   scale_x_continuous(labels = scales::percent_format(scale = 100)) +
   guides(color = 'none', alpha = 'none') +
   labs(title = 'Which nations had the best "home oval advantage" in ODI cricket, 1996-2005?',
-       subtitle = '<span style = "color: navyblue"><b>Sri Lanka</b></span> fared the best at home grounds (among nations competing in at least 50 matches) with an <span style = "color: navyblue"><b>81% win <br>percentage</b></span>in 81 ODI matches as the home side, including 33 wins at R Premadasa Stadium, Colombo. <br><span style = "color: maroon"><b>West Indies </b></span>had a 92% (!) winning percentage at Arnos Vale Ground in Kingstown, St. Vincent. <br><span style = "color: darkgoldenrod1"><b>Australia (69%)</b></span> and <span style = "color: darkgreen"><b>South Africa (68%)</b></span> had the highest overall win rates (home and away) over the period.',
+       subtitle = '<span style = "color: navyblue"><b>Sri Lanka</b></span> fared the best at home grounds (among nations competing in at least 50 matches) with an <span style = "color: navyblue"><b>81% win <br>percentage</b></span> in 81 ODI matches as the home side, including 33 wins at R Premadasa Stadium, Colombo. <br><span style = "color: maroon"><b>West Indies </b></span>won 92% (!) of matches held at Arnos Vale Ground in Kingstown, St. Vincent. <br><span style = "color: darkgoldenrod1"><b>Australia (69%)</b></span> and <span style = "color: darkgreen"><b>South Africa (68%)</b></span> had the highest overall win-rates (home and away) over the period.',
        x = 'Win percentage per home venue \n(nations ordered by overall home win percentage)',
        size = 'Number \nof wins',
        caption = 'SOURCE: ESPN Cricinfo') +
-  scale_color_manual(values = c('darkgoldenrod1','seagreen','gray','dodgerblue1','darkgreen','black','darkgreen','darkgreen','navyblue','maroon','red2'))
+  scale_color_manual(values = c('darkgoldenrod1','seagreen','navyblue','dodgerblue1','darkgreen','black','darkgreen','darkgreen','navyblue','maroon','red2'))
+
